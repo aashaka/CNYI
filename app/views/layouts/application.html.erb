@@ -12,8 +12,8 @@
     <%= link_to "CNYI", '#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Log in",   '#' %></li>
-        <li><%= link_to "Register",   '#' %></li>
+        <li><%= link_to "Log in",   '/login' %></li>
+        <li><%= link_to "Register",   '/signup' %></li>
       </ul>
     </nav>
   </div>
@@ -22,5 +22,6 @@
   <%= yield %>
 </div>
 <footer class="footer">Aashaka \m/ LITG</footer>
+<%= debug(params) if Rails.env.development? %>
 </body>
 </html>
