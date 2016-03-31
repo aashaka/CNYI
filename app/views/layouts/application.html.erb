@@ -9,17 +9,27 @@
 <body>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "CNYI", '#', id: "logo" %>
+    <%= link_to "CNYI", '/#', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Preferences", '#' %></li>
+        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+      <% else %>
         <li><%= link_to "Log in",   '/login' %></li>
         <li><%= link_to "Register",   '/signup' %></li>
+      <% end %>
       </ul>
     </nav>
   </div>
 </header>
 <div class="container">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-<%= type %>"><%= msg %></div>
+  <% end %>
   <%= yield %>
+  <%= session[:user_id] %>
 </div>
 <footer class="footer">Aashaka \m/ LITG</footer>
 <%= debug(params) if Rails.env.development? %>
