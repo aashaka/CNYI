@@ -1,0 +1,27 @@
+<% provide(:title, 'News Preferences') %>
+<% if logged_in? %>
+	<form role="form" method="post" action="/preferences">
+		<div class="form-group">
+		<label for="sel1">Select the News source:</label>
+			<select class="form-control" id="sel1">
+				<option>Guardian</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+		</div>
+		<div class="form-group">
+		<label for="sel1">Select the Category:</label>
+			<select class="form-control" id="sel1">
+				<option>Politics</option>
+				<option>Sports</option>
+				<option>World news</option>
+				<option>Business</option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		<%= csrf_meta_tags %>
+	</form>
+<% else %>
+	<h2> Log in to set your preferences </h2>
+<% end %>

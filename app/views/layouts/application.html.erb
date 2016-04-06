@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
         <li><%= link_to "Profile", current_user %></li>
-        <li><%= link_to "Preferences", '#' %></li>
+        <li><%= link_to "Preferences", '/preferences' %></li>
         <li><%= link_to "Log out", logout_path, method: "delete" %></li>
       <% else %>
         <li><%= link_to "Log in",   '/login' %></li>

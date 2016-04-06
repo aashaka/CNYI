@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  UID: 1
+  source: MyString
+  category: MyString
+
+two:
+  UID: 1
+  source: MyString
+  category: MyString
