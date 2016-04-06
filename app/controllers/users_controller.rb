@@ -18,11 +18,17 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to CNYI"
-      redirect_to @user 
+      redirect_to '/news' 
     else
       render 'new'
     end
   end
+
+  def news
+    @r = HTTParty.get("http://content.guardianapis.com/search?from-date=2016-04-05&section=politics&q=politics&api-key=test")
+    @length = @r["response"]["results"].length
+  end
+
 
   private
 

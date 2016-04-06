@@ -49,4 +49,8 @@ group :development do
   gem 'spring'
 
   gem 'bcrypt',               '3.1.7'
+
+  gem 'nokogiri',						'1.6.7.2'
+  gem 'httparty',						'0.13.7'
+  gem 'pry','0.10.3'
 end

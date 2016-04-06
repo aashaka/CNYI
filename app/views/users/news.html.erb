@@ -1,0 +1,15 @@
+<% provide(:title, 'News') %>
+<% if logged_in? %>
+	<% for i in 0..@length-1 %>
+		<div class="panel panel-default">
+	  <div class="panel-heading">
+	  	<a href = "<%= @r["response"]["results"][i]["webUrl"] %>" >
+  			<%= @r["response"]["results"][i]["webTitle"] %>
+  		</a>
+  	</div>
+	  <div class="panel-body">Panel Content to be added</div>
+	</div>
+	<% end %>
+<% else %>
+	<h2>Log in to see news according to your Preferences</h2>
+<% end %>
