@@ -18,14 +18,15 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to CNYI"
-      redirect_to '/news' 
+      redirect_to '/news'
     else
       render 'new'
     end
   end
 
   def news
-    @r = HTTParty.get("http://content.guardianapis.com/search?from-date=2016-04-05&section=politics&q=politics&api-key=test")
+    query = get_query
+    @r = HTTParty.get(query)
     @length = @r["response"]["results"].length
   end
 
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def addPref
-    @user_preference = UserPreference.new(session[:user_id], user_preference_params)
+    @user_preference = UserPreference.new(user_preference_params)
   end
 
   private
@@ -44,6 +45,14 @@ class UsersController < ApplicationController
 
     def user_preference_params
       params.require(:user_preference).permit(:source, :category)
+    end
+
+    def get_query
+      time = Time.now
+      year = time.year
+      month = time.month
+      day = time.day
+      query = "http://content.guardianapis.com/search?from-date=#{year}-#{month}-#{day}&section=politics&q=politics&api-key=test"
     end
 
 
