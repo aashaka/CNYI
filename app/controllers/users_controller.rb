@@ -25,26 +25,16 @@ class UsersController < ApplicationController
   end
 
   def news
+
     query = get_query
     @r = HTTParty.get(query)
     @length = @r["response"]["results"].length
-  end
-
-  def pref
-  end
-
-  def addPref
-    @user_preference = UserPreference.new(user_preference_params)
   end
 
   private
 
     def user_params
       params.require(:user).permit(:name,:email,:password, :password_confirmation)
-    end
-
-    def user_preference_params
-      params.require(:user_preference).permit(:source, :category)
     end
 
     def get_query

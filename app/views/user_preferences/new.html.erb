@@ -1,0 +1,17 @@
+<% provide(:title, 'Preference') %>
+<h1>Select Preference</h1>
+
+<!-- TODO: make dropdown options for both choices -->
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for("preferences", method: "post") do |f| %>
+      <%= f.label :Source %>
+      <%= f.text_field :source, class: 'form-control' %>
+
+      <%= f.label :Category %>
+      <%= f.text_field :category, class: 'form-control'%>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
