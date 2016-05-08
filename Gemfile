@@ -52,10 +52,9 @@ group :development do
   gem 'nokogiri',						'1.6.7.2'
   gem 'httparty',						'0.13.7'
   gem 'pry','0.10.3'
-  gem 'rubysl-resolv'
 end
 
 group :production do
-gem 'pg'
-gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end
