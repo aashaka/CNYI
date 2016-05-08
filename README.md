@@ -23,3 +23,5 @@ CNYI makes extensive use of APIs of different News sources, RSS and Web Scraping
 1. Convert categories into drop down menu
 2. Add more news sources
 3. Take footer down
+4. Show user preferences
+5. Add Forgot Password functionality
