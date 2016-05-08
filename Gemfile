@@ -1,11 +1,10 @@
-
 source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,6 +37,7 @@ gem 'bootstrap-sass',       '3.2.0.0'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3'
   gem 'debugger'
 end
 
@@ -53,4 +53,10 @@ group :development do
   gem 'nokogiri',						'1.6.7.2'
   gem 'httparty',						'0.13.7'
   gem 'pry','0.10.3'
+  gem 'rubysl-resolv'
+end
+
+group :production do
+gem 'pg'
+gem 'rails_12factor'
 end
