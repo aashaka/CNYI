@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def news
 
     query = get_query
-#    binding.pry
+    binding.pry
     @r = HTTParty.get(query)
 #    binding.pry
     @length = @r["response"]["results"].length
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       month = time.month
       day = time.day
       if record = UserPreference.find_by(UID: session[:user_id])
-        query = "http://content.guardianapis.com/search?from-date=#{year}-#{month}-#{day}&section=#{record[:category]}&q=#{record[:subcategory]}&api-key=test"
+        query = "http://content.guardianapis.com/search?from-date=#{year}-#{month}-#{day}&section=#{record[:category]}&api-key=test"
       else
         query = "http://content.guardianapis.com/search?from-date=#{year}-#{month}-#{day}&api-key=test"
       end

@@ -7,10 +7,6 @@
     <%= form_for("preferences", method: "post") do |f| %>
       <%= f.label :Category %>
       <%= f.text_field :category, class: 'form-control' %>
-
-      <%= f.label :Subcategory %>
-      <%= f.text_field :subcategory, class: 'form-control'%>
-
       <%= f.submit "Save my choice", class: "btn btn-primary" %>
     <% end %>
   </div>

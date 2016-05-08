@@ -16,8 +16,7 @@ class UserPreferencesController < ApplicationController
 
     def add_query(id, preferences)
       if @user_preference = UserPreference.find_by(UID: id)
-        preferences[:category] = @user_preference[:category] + "%20OR%20" + preferences[:category]
-        preferences[:subcategory] = @user_preference[:subcategory] + "%20OR%20" + preferences[:subcategory]
+        preferences[:category] = @user_preference[:category] + "%7C" + preferences[:category]
         if @user_preference.update(user_preference_params)
           flash[:success] = "Preference saved"
           redirect_to '/news'
@@ -37,7 +36,7 @@ class UserPreferencesController < ApplicationController
     end
 
     def user_preference_params
-      user_prefs = params.require(:preferences).permit(:category, :subcategory, :UID)
+      user_prefs = params.require(:preferences).permit(:category, :UID)
     end
 
 end
