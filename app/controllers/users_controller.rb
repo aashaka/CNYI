@@ -27,9 +27,7 @@ class UsersController < ApplicationController
   def news
 
     query = get_query
-    binding.pry
     @r = HTTParty.get(query)
-#    binding.pry
     @length = @r["response"]["results"].length
   end
 
