@@ -14,16 +14,11 @@ class UserPreferencesController < ApplicationController
 
   private
 
-    def user_preference_params
-      
-      user_prefs = params.require(:preferences).permit(:source, :category, :UID)
-    end
-
     def add_query(id, preferences)
-      if user_preference = UserPreference.find_by(UID: id)
-        preferences[:source] = user_preference[:source] + "%20OR%20" + preferences[:source]
-        preferences[:category] = user_preference[:category] + "%20OR%20" + preferences[:category]
-        if user_preference.update(source: preferences[:source], category: preferences[:category])
+      if @user_preference = UserPreference.find_by(UID: id)
+        preferences[:category] = @user_preference[:category] + "%20OR%20" + preferences[:category]
+        preferences[:subcategory] = @user_preference[:subcategory] + "%20OR%20" + preferences[:subcategory]
+        if @user_preference.update(user_preference_params)
           flash[:success] = "Preference saved"
           redirect_to '/news'
         else
@@ -31,13 +26,18 @@ class UserPreferencesController < ApplicationController
         end
       else
         preferences[:UID] = id
-        if user_preference.save(preferences)
+        @user_preference = UserPreference.new(user_preference_params)
+        if @user_preference.save(preferences)
           flash[:success] = "Preference saved"
           redirect_to '/news'
         else
           render 'new'
         end
       end
+    end
+
+    def user_preference_params
+      user_prefs = params.require(:preferences).permit(:category, :subcategory, :UID)
     end
 
 end
