@@ -36,9 +36,8 @@ gem 'bootstrap-sass',       '3.2.0.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3'
-  gem 'debugger'
+  gem 'byebug'
 end
 
 group :development do
