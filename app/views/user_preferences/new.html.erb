@@ -5,11 +5,11 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for("preferences", method: "post") do |f| %>
-      <%= f.label :Source %>
-      <%= f.text_field :source, class: 'form-control' %>
-
       <%= f.label :Category %>
-      <%= f.text_field :category, class: 'form-control'%>
+      <%= f.text_field :category, class: 'form-control' %>
+
+      <%= f.label :Subcategory %>
+      <%= f.text_field :subcategory, class: 'form-control'%>
 
       <%= f.submit "Save my choice", class: "btn btn-primary" %>
     <% end %>
