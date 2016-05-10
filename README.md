@@ -8,6 +8,9 @@ CNYI makes extensive use of APIs of different News sources, RSS and Web Scraping
 #### Getting Started
 
 1. Clone this repo
+<br>Via SSH: ```git clone git@github.com:aashaka/CNYI.git```
+<br>Via HTTPS: ```git clone https://github.com/aashaka/CNYI.git```
+
 2. Make sure you have an almost latest version of both Ruby and Rails in your system
 3. `bundle install` in the root directory
 4. `rails server`
